@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mqtt-to-DB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e319222ac747ce71cebd7bf07729e55cd2cf365")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+447633d8ab70818b86bd1da745f53fa04f0b454d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mqtt-to-DB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mqtt-to-DB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
