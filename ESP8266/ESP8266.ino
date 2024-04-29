@@ -66,7 +66,7 @@ void reconnect() {
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("2IOT-progettostage-out", "hello world");
+      //client.publish("2IOT-progettostage-out", "hello world");
       // ... and resubscribe
       client.subscribe("2IOT-progettostage-in");
     } else {
