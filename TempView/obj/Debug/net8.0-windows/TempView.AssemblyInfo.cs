@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TempView")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0093fa5d631b337ac2d29d86bdb50d09b528ed1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+049fe67e63011b862cf6b072dfc2f19011ddd6a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TempView")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TempView")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,6 +8,7 @@ namespace TempView
 {
 	public partial class Form1 : Form
 	{
+		public static int samples = 20;
 		public class Dato
 		{
 			public int Id { get; set; }
@@ -22,37 +23,34 @@ namespace TempView
 		{
 			InitializeComponent();
 			timer1.Enabled = true;
-
-
-			
-		}
+            cartesianChart1.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Series 1",
+                    Values = new ChartValues<double>()
+                }
+            };
+			for (int i = 0; i < samples; i++)
+			{
+				cartesianChart1.Series[0].Values.Add(0.00);
+            }
+        }
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			readDB();
 			List<double> temperature = new List<double>();
-			textBoxDebug.Text = string.Empty;
-			cartesianChart1.Series.Clear();
 			foreach (var dato in dati)
 			{
-				textBoxDebug.Text += dato.Temperatura.Trim() + " | ";
-				temperature.Add(Convert.ToDouble(dato.Temperatura));
+				temperature.Add(Convert.ToDouble(dato.Temperatura.Replace('.', ',')));
 			}
-
-			cartesianChart1.Series = new SeriesCollection
+						
+			for (int i = 0; i < samples; i++)
 			{
-				new LineSeries
-				{
-					Title = "Series 1",
-					Values = new ChartValues<double>()
-				}
-			};
-
-			foreach (var t in temperature)
-			{
-				cartesianChart1.Series[0].Values.Add(t);
+				cartesianChart1.Series[0].Values[i] = temperature[i];
 			}
-			
+						
 
 		}
 
@@ -60,9 +58,9 @@ namespace TempView
 		public static void readDB()
 		{
 			string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-				"AttachDbFilename=C:\\Users\\bortolanim\\Desktop\\2IOT-ProgettoStage\\2iot-progettostage\\2IOTDB.mdf;" +
-				"Integrated Security=True;" +
-				"Connect Timeout=30;";
+				"AttachDbFilename=C:\\Users\\Mauro\\Desktop\\2iot-progettostage\\2IOTDB.mdf;" +
+				"Integrated Security=True" +
+				";Connect Timeout=30";
 
 			dati = new List<Dato>();
 			
@@ -71,7 +69,7 @@ namespace TempView
 				using (SqlConnection conn = new SqlConnection(connectionString))
 				{
 					conn.Open();
-					string query = "SELECT * FROM Dati";
+					string query = $"SELECT TOP {samples} * FROM Dati ORDER BY Id DESC";
 
 					using (SqlCommand cmd = new SqlCommand(query, conn))
 					{
@@ -87,7 +85,7 @@ namespace TempView
 							}
 						}
 					}
-
+					dati.Reverse();
 					conn.Close();
 				}
 			}
