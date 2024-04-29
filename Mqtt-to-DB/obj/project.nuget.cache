@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "XTh9ZvBJ8w4cwWgbk2bqYcTyAlgy9mnlMdEHH5Baf5aTBTtT6KhlNpwqT+4jM1sMShRhu8Mgg1YIL3zdU5tmAg==",
+  "dgSpecHash": "U2QrPDYPI2F8ZZDDbDu2c38TAStDFeE+EtVwkw6qfRZPpuw61I8QBuAv+orFYWqqMyYssx63XHJi6y1XExb33A==",
   "success": true,
   "projectFilePath": "C:\\Users\\bortolanim\\Desktop\\2IOT-ProgettoStage\\2iot-progettostage\\Mqtt-to-DB\\Mqtt-to-DB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bortolanim\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\bortolanim\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\bortolanim\\.nuget\\packages\\mqttnet\\4.3.3.952\\mqttnet.4.3.3.952.nupkg.sha512",
+    "C:\\Users\\bortolanim\\.nuget\\packages\\mqttnet.extensions.managedclient\\4.3.3.952\\mqttnet.extensions.managedclient.4.3.3.952.nupkg.sha512",
     "C:\\Users\\bortolanim\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\bortolanim\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\bortolanim\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

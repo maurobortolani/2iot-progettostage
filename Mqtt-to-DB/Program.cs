@@ -1,5 +1,10 @@
 ﻿using Microsoft.SqlServer.Server;
 using System.Data.SqlClient;
+using MQTTnet;
+using MQTTnet.Client;
+
+using System.Text;
+using MQTTnet.Server;
 
 public class Program
 {
@@ -10,19 +15,63 @@ public class Program
 		public string Temperatura { get; set; }
 	}
 
-	static void Main()
+	static async Task Main(string[] args)
 	{
+		string broker = "broker.hivemq.com";
+		int port = 1883;
+		string topic = "2IOT-progettostage-out";
 
-		Dato dato = new Dato()
+		// Create a MQTT client factory
+		var factory = new MqttFactory();
+
+		// Create a MQTT client instance
+		var mqttClient = factory.CreateMqttClient();
+
+		// Create MQTT client options
+		var options = new MqttClientOptionsBuilder()
+			.WithTcpServer(broker, port) // MQTT broker address and port
+			.WithCleanSession()
+			.Build();
+
+		// Connect to MQTT broker
+		var connectResult = await mqttClient.ConnectAsync(options);
+
+		if (connectResult.ResultCode == MqttClientConnectResultCode.Success)
 		{
-			Temperatura = (15.25).ToString()
-		};
+			Console.WriteLine("Connected to MQTT broker successfully.");
+
+			// Subscribe to a topic
+			await mqttClient.SubscribeAsync(topic);
+
+			// Callback function when a message is received
+			mqttClient.ApplicationMessageReceivedAsync += e =>
+			{
+				Dato dato = new Dato();
+				string message = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+				string[] temp = message.Split(' ');
+				dato.Temperatura = temp[1];
 
 
+				Console.WriteLine($"Ho ricevuto il messaggio: {dato.Temperatura}");
+				scriviDato(dato);
 
-		scriviDato(dato);
-		
-	}	
+
+				return Task.CompletedTask;
+			};
+
+			// Publish a message 10 times
+			while (Console.ReadKey().Key != ConsoleKey.Escape) ;
+
+			// Unsubscribe and disconnect
+			await mqttClient.UnsubscribeAsync(topic);
+			await mqttClient.DisconnectAsync();
+		}
+		else
+		{
+			Console.WriteLine($"Failed to connect to MQTT broker: {connectResult.ResultCode}");
+		}
+	}
+
 
 	public static void scriviDato(Dato x)
 	{

@@ -21,3 +21,5 @@ C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\bin
 C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\obj\Debug\net8.0\Mqtt-to-DB.csproj.AssemblyReference.cache
 C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\obj\Debug\net8.0\Mqtt-to-DB.csproj.Up2Date
+C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\bin\Debug\net8.0\MQTTnet.dll
+C:\Users\bortolanim\Desktop\2IOT-ProgettoStage\2iot-progettostage\Mqtt-to-DB\bin\Debug\net8.0\MQTTnet.Extensions.ManagedClient.dll
